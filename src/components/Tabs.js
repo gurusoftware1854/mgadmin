@@ -85,6 +85,19 @@ const Tabs = ({ transaction, loans, account }) => {
                                     <p class="text-xs-plus">Total Installment</p>
                                 </div>
                             </div>
+                            <div
+                                class="rounded-lg border border-slate-150 p-4 dark:border-navy-600">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <span class="text-xs">{rupee}</span>
+                                        <span
+                                            class="text-2xl font-medium text-slate-700 dark:text-navy-100"
+                                        >{account.total_bonus}</span>
+
+                                    </div>
+                                    <p class="text-xs-plus">Total Bonus</p>
+                                </div>
+                            </div>
                             <div class="rounded-lg border border-slate-150 p-4 dark:border-navy-600">
                                 <div class="flex justify-between">
                                     <div>
