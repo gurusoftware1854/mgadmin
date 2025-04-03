@@ -5,11 +5,14 @@ import { rupee } from "../const";
 
 const OnSaleProducts = ({ transaction }) => {
     const [searchInput, setSearchInput] = useState("");
-
+    console.log(transaction)
     const columns = [
         { name: "User ID", selector: (row) => row.userid, sortable: true },
         { name: "Transaction Type", selector: (row) => row.transaction_type, sortable: true },
         { name: "Amount", selector: (row) => row.amount, sortable: true },
+        { name: "Bonus", selector: (row) => row.bonus, sortable: true },
+        { name: "Total", selector: (row) => row.total, sortable: true },
+        { name: "Payment Mode", selector: (row) => row.p_mode, sortable: true },
         { name: "Date", selector: (row) => row.transaction_date, sortable: true },
     ];
 
