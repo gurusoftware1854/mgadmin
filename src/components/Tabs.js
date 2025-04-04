@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import { motion } from "framer-motion";
-import { rupee } from "../const";
+import { main, rupee } from "../const";
 
 const OnSaleProducts = ({ transaction }) => {
     const [searchInput, setSearchInput] = useState("");
     console.log(transaction)
+
+    const deleteFunction = (id, trans_id) => {
+        if (window.confirm("Are you sure you want to delete this transaction?")) {
+            console.log("Deleting transaction:", { id, trans_id });
+            // Call your API or function to delete the record
+        }
+    };
+
     const columns = [
         { name: "User ID", selector: (row) => row.userid, sortable: true },
         { name: "Transaction Type", selector: (row) => row.transaction_type, sortable: true },
@@ -14,6 +22,17 @@ const OnSaleProducts = ({ transaction }) => {
         { name: "Total", selector: (row) => row.total, sortable: true },
         { name: "Payment Mode", selector: (row) => row.p_mode, sortable: true },
         { name: "Date", selector: (row) => row.transaction_date, sortable: true },
+        {
+            name: "Actions",
+            cell: (row) => (
+                <button onClick={() => deleteFunction(row.id, row.trans_id)} className="delete-btn" style={{ backgroundColor: main, padding: 10, color: "#fff" }}>
+                    DELETE
+                </button>
+            ),
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+        }
     ];
 
     const filteredData = transaction?.filter((item) =>
